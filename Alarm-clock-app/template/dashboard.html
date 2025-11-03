@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LibraryAlarm</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <h1>Break Time Alarm</h1>
+            </div>
+            <div class="sidebar-content">
+                <ul class="nav-links">
+                    <li>
+                        <a href="{{ url_for('dashboard') }}" class="active">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('clock') }}">
+                            <i class="fas fa-clock"></i>
+                            <span>Clock</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('alarm') }}">
+                            <i class="fas fa-bell"></i>
+                            <span>Alarms Clock</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('schedule') }}">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                 
+                    <li>
+                        <a href="{{ url_for('stop_watch') }}">
+                            <i class="fas fa-book"></i>
+                            <span>Booked Alarm</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar-footer">
+                    <div class="user-status">
+                        <div class="status-indicator online"></div>
+                        <span>Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="header-left">
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                        <p class="current-date">Loading date...</p>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="quick-actions">
+                        <button class="action-btn" title="Quick Add Alarm">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-bell"></i>
+                        </button>
+            
+                    </div>
+                    
+                    <!-- <div class="user-profile">
+                        <div class="user-info">
+                            <div class="user-avatar">
+                            {% if user %}
+                                {{ user.username[:2].upper() }}
+                            {% else %}
+                                GU
+                            {% endif %}
+                            </div>
+                            <div class="user-details">
+                                <h3>
+                                    {% if user %}
+                                        {{ user.username }}
+                                    {% else %}
+                                        Guest User
+                                    {% endif %}
+                                </h3>
+                                <span class="user-role">Student</span>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-dropdown">
+                            <button class="dropdown-toggle" onclick="toggleProfileMenu()">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu" id="profileMenu">
+                                <a href="#settings">
+                                    <i class="fas fa-cog"></i>
+                                    Settings
+                                </a>
+                                <a href="#profile">
+                                    <i class="fas fa-user"></i>
+                                    Profile
+                                </a>
+                                <a href="{{ url_for('logout') }}" class="logout-link">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="feature-cards">
+                <div class="card clock">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="current-time">10:46:28 AM</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Digital Clock</h3>
+                            <p>Manage your alarm time efficiently</p>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Multiple Timezones</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-history"></i>
+                                    <span>Time Tracking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('clock') }}" class="card-btn">
+                            <span>Open Clock</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card alarm">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="status-badge">
+                                <i class="fas fa-circle"></i>
+                                <span>3 Active</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Time Alarms</h3>
+                            <p>Schedule and manage your time reminders</p>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Smart Notifications</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-sync"></i>
+                                    <span>Recurring Alarms</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('alarm') }}" class="card-btn">
+                            <span>Manage Alarms</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card schedule">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="status-badge">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Today's Plan</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Time Schedule</h3>
+                            <p>Plan and organize your time sessions</p>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-tasks"></i>
+                                    <span> Time Today</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Progress Tracking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('schedule') }}" class="card-btn">
+                            <span>View Schedule</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card books">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="status-badge">
+                                <i class="fas fa-book-open"></i>
+                                <span>5 Active</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Booked views</h3>
+                            <p>Track your reading progress and materials</p>
+                            <div class="card-features">
+                                <div class="feature">
+                                    <i class="fas fa-bookmark"></i>
+                                    <span>Time Progress</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-list"></i>
+                                    <span>Time Materials</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('stop_watch') }}" class="card-btn">
+                            <span>Stop Books</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Overview -->
+            <div class="activity-overview">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Activity Overview</h2>
+                    <div class="date-range">
+                        <button class="active">Today</button>
+                        <button>Week</button>
+                        <button>Month</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card study-time">
+                        <div class="stat-header">
+                            <i class="fas fa-clock"></i>
+                            <h3>Study Time</h3>
+                        </div>
+                        <div class="stat-content">
+                            <div class="main-stat">2h 45m</div>
+                            <div class="stat-progress positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>15% vs yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card completed-tasks">
+                        <div class="stat-header">
+                            <i class="fas fa-tasks"></i>
+                            <h3>Completed Tasks</h3>
+                        </div>
+                        <div class="stat-content">
+                            <div class="main-stat">8/10</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card reading-progress">
+                        <div class="stat-header">
+                            <i class="fas fa-book-reader"></i>
+                            <h3>Time Progress</h3>
+                        </div>
+                        <div class="stat-content">
+                            <div class="main-stat">75%</div>
+                            <div class="stat-detail">2 chapters remaining</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card focus-score">
+                        <div class="stat-header">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>Focus Time</h3>
+                        </div>
+                        <div class="stat-content">
+                            <div class="main-stat">8.5</div>
+                            <div class="stat-progress positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>0.5 pts today</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alarm Notification Modal -->
+    <div class="alarm-notification" id="alarm-notification">
+        <h3><i class="fas fa-bell"></i> Alarm!</h3>
+        <p id="alarm-message">It's time for your break!</p>
+        <div class="alarm-buttons">
+            <button class="snooze-btn" id="snooze-alarm"><i class="fas fa-clock"></i> Snooze (5 min)</button>
+            <button class="dismiss-btn" id="dismiss-alarm"><i class="fas fa-check"></i> Dismiss</button>
+        </div>
+    </div>
+
+    <!-- Alarms Modal -->
+    <div class="modal" id="alarms-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-bell"></i> Manage Alarms</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="alarm-form">
+                    <div class="form-group">
+                        <label for="alarm-name">Alarm Name</label>
+                        <input type="text" id="alarm-name" class="form-control" placeholder="Enter alarm name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alarm-time">Alarm Time</label>
+                        <input type="time" id="alarm-time" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alarm-days">Repeat</label>
+                        <select id="alarm-days" class="form-control">
+                            <option value="once">Once</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekdays">Weekdays (Mon-Fri)</option>
+                            <option value="weekends">Weekends (Sat-Sun)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Alarm Sound</label>
+                        <div class="sound-options">
+                            <div class="sound-option selected" data-sound="bell">
+                                <i class="fas fa-bell"></i><br>Bell
+                            </div>
+                            <div class="sound-option" data-sound="chime">
+                                <i class="fas fa-music"></i><br>Chime
+                            </div>
+                            <div class="sound-option" data-sound="digital">
+                                <i class="fas fa-clock"></i><br>Digital
+                            </div>
+                            <div class="sound-option" data-sound="voice">
+                                <i class="fas fa-microphone"></i><br>Voice
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Volume</label>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-down"></i>
+                            <input type="range" id="alarm-volume" class="volume-slider" min="0" max="100" value="80">
+                            <i class="fas fa-volume-up"></i>
+                            <span id="volume-value">80%</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Alarm</button>
+                </form>
+                <div class="alarm-list" id="alarm-list">
+                    <!-- Alarms will be listed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include other modals (clock, books) as before -->
+
+    <div class="footer">
+        <p>LibraryAlarm &copy; 2023 | Premium Library Management System</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script>
+        // Update clock and date
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.querySelector('.current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.querySelectorAll('.current-time').forEach(el => {
+                el.textContent = now.toLocaleTimeString('en-US', timeOptions);
+            });
+        }
+
+        // Initialize date/time updates
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Profile dropdown toggle
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profileMenu');
+            menu.classList.toggle('show');
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInside = event.target.closest('.profile-dropdown');
+                if (!isClickInside && menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            });
+        }
+
+        // Sidebar toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.main-content').classList.toggle('expanded');
+        });
+
+        // Quick action handlers
+        document.querySelector('.quick-actions .action-btn').addEventListener('click', function() {
+            // Implement quick alarm creation functionality
+            console.log('Quick alarm creation clicked');
+        });
+
+        // Initialize stats and counters
+        function updateStats() {
+            // Update active alarms count
+            const activeAlarmsEl = document.querySelector('.active-alarms');
+            if (activeAlarmsEl) {
+                // This should be replaced with actual data from your backend
+                activeAlarmsEl.textContent = '3 Active Alarms';
+            }
+
+            // Update today's sessions
+            const todaySessionsEl = document.querySelector('.today-sessions');
+            if (todaySessionsEl) {
+                // This should be replaced with actual data from your backend
+                todaySessionsEl.textContent = '2 Sessions Today';
+            }
+
+            // Update active books
+            const activeBooksEl = document.querySelector('.active-books');
+            if (activeBooksEl) {
+                // This should be replaced with actual data from your backend
+                activeBooksEl.textContent = '5 Active Books';
+            }
+        }
+
+        // Initialize stats
+        updateStats();
+
+        // Add smooth transitions for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('card-hover');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('card-hover');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

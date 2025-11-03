@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Clock</title>
+    <link rel="stylesheet" href="../static/css/clock.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/clock.css') }}">
+</head>
+<body class="dark"> 
+    <div class="clock-container">
+        <div class="clock-circle">
+            <div class="clock-face">
+                <!-- Hour markers will be added by JavaScript -->
+                <!-- Clock hands will be added by JavaScript -->
+                <div class="center-circle"></div>
+            </div>
+        </div>
+        <div class="digital-time" id="digitalTime">12:09:06</div>
+        <button class="theme-toggle" id="themeToggle">Light</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/clock.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  /* font-family: 'Segoe UI', sans-serif; */
+  /* background-color: #f1e6e6; */
+  color: #333;
+  background: linear-gradient(to right, #f6e2f3, #f1e6e6);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  color: rgb(17, 7, 7);
+}
+
+.navbar-brand {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-brand p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-brand img {
+  width: 10%;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #1272df;
+  color: white;
+}
+
+
+/* _______________container____________ */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13%;
+
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.gap-3 {
+  display: flex;
+  gap: 40px;
+  padding-top: 20px;
+
+}
+
+.gap-3 .btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #1272df;
+  color: white;
+}
+
+.my-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.my-5 h2 {
+  font-size: 25px;
+  margin-top: 90px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25px;
+}
+
+.col-md-4 h5 {
+  font-size: 20px;
+}
+
+.col-md-4 {
+  font-size: 15px;
+  width: 25%;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 50px 40px solid rgb(7, 7, 7);
+}
+
+.col-md-4 ul li {
+  padding: 5px;
+}
+
+.five {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+
+}
+
+.py-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(219, 219, 220);
+  box-shadow: 10px 40px 50px solid black;
+}
+
+/* .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+} */
+
+
+
+/* .get-started {
+  background-color: white;
+  color: #4a90e2;
+} */
+
+/* .sign-in {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.create-account {
+  background-color: #50e3c2;
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #eaf4ff;
+} */
+
+.features,
+.cta {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.features li {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  font-size: 0.9em;
+}
+
+
+.login-page {
+  background: linear-gradient(to right, #eaf4ff, #d0f0ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+
+
+.tabs span.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.tabs a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.lamp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lamp img {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}

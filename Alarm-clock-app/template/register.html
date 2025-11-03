@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account - LibraryAlarm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="time">
+            <img src="../static/img/time.png" alt="">
+            <h2> Register </h2>
+        </div>
+
+        <div class="lamp">
+            <img src="../static/img/lamp.png" alt="">
+            <p>Don't have an account? Switch to the "Sign Up" tab to create one first.</p>
+        </div>
+
+        <form id="registerForm" method="post" action="{{ url_for('register') }}">
+            <input type="text" name="username" id="username" placeholder="Username" required />
+            <input type="password" name="password" id="password" placeholder="Password" required />
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required />
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <div class="options">
+            <a href="{{ url_for('login') }}" class="btn-outline">Already have an account? Login</a>
+            <a href="{{ url_for('start') }}" class="btn-outline">Go to Stopwatch</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+
+</html>

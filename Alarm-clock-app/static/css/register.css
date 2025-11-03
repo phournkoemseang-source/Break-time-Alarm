@@ -1,0 +1,91 @@
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f6e2f3, #f1e6e6);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container img{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #4facfe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00c6ff;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+.btn-outline {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4facfe;
+    background: transparent;
+    color: #4facfe;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #4facfe;
+    color: #fff;
+}
+.lamp img{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lamp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

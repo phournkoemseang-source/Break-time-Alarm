@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Alarm Clock with Sound</title>
+    <link rel="stylesheet" href="../static/css/alarm-clock.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/alarm-clock.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Digital Alarm Clock</h1>
+        <div class="clock" id="clock">00:00:00 AM</div>
+
+        <div class="alarm-setup">
+            <h2>Set Alarm Time</h2>
+            <div class="inputs">
+                <select id="hour"></select>
+                <select id="minute"></select>
+                <select id="ampm">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+            <input type="text" id="alarmLabel" placeholder="Enter alarm name (e.g. Lunch, Breaktime)">
+            <button id="setAlarmBtn">Set Alarm</button>
+        </div>
+
+        <div class="alarm-list">
+            <h2>Your Alarms</h2>
+            <ul id="alarms"></ul>
+        </div>
+
+        <div class="theme-toggle">
+            <label class="switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+            </label>
+            <span>Light / Dark</span>
+        </div>
+    </div>
+    <audio id="alarmSound" src="{{ url_for('static', filename='sound/fire-alarm-bell-413800.mp3') }}" preload="auto"></audio>
+        <!-- <div class="sound-setup">
+            <button id="enableSoundBtn" class="card-btn">Enable Sound</button>
+            <p class="hint">If you don't hear audio, click "Enable Sound" to allow alarms on this page.</p>
+        </div> -->
+
+        <script src="{{ url_for('static', filename='js/alarm-clock.js') }}"></script>
+</body>
+
+</html>

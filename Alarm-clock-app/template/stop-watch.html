@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booked Alarm - LibraryAlarm</title>
+    <link rel="stylesheet" href="../static/css/stop-watch.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stop-watch.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- <div class="container">
+   
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <h1>Break Time Alarm</h1>
+            </div>
+            <div class="sidebar-content">
+                <ul class="nav-links">
+                    <li>
+                        <a href="{{ url_for('dashboard') }}">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('clock') }}">
+                            <i class="fas fa-clock"></i>
+                            <span>Clock</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('alarm') }}">
+                            <i class="fas fa-bell"></i>
+                            <span>Alarms Clock</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('schedule') }}">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('stop_watch') }}" class="active">
+                            <i class="fas fa-book"></i>
+                            <span>Booked Alarm</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar-footer">
+                    <div class="user-status">
+                        <div class="status-indicator online"></div>
+                        <span>Online</span>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+       
+<!-- 
+    <div class="content-section"> -->
+        <h2><i class="fas fa-stopwatch"></i> Productivity Timer</h2>
+
+        <!-- Stopwatch Section -->
+        <div class="section">
+            <h2>Stopwatch</h2>
+            <div class="time-display" id="stopwatchDisplay">00:00:00</div>
+            <div class="controls">
+                <button onclick="startStopwatch()">Start</button>
+                <button onclick="pauseStopwatch()">Stop</button>
+                <button onclick="continueStopwatch()">Continue</button>
+                <button onclick="stopStopwatch()">Clear</button>
+                <button onclick="lapStopwatch()">Lap</button>
+            </div>
+            <ul class="lap-list" id="stopwatchLaps"></ul>
+        </div>
+
+        <!-- Countdown Timer Section -->
+        <div class="section">
+            <h2>Focus Timer</h2>
+            <div class="mode-buttons">
+                <button onclick="setTimer(25)">🔥 Focus (25 min)</button>
+                <button onclick="setTimer(5)">👍 Short Break (5 min)</button>
+                <button onclick="setTimer(30)">🍵 Long Break (30 min)</button>
+            </div>
+            <div class="time-display" id="countdownDisplay">25:00</div>
+            <div class="controls">
+                <button onclick="startCountdown()">Start</button>
+                <button onclick="pauseCountdown()">Stop</button>
+                <button onclick="resetCountdown()">Reset</button>
+                <button onclick="lapCountdown()">Lap</button>
+            </div>
+            <ul class="lap-list" id="countdownLaps"></ul>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/stop-watch.js') }}"></script>
+</body>
+
+</html>
